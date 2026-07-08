@@ -1,0 +1,441 @@
+:root {
+  --navy: #061235;
+  --navy-soft: #0d1c49;
+  --gold: #ffe400;
+  --red: #ff3043;
+  --sky: #4fb6d6;
+  --green: #87b268;
+  --white: #ffffff;
+  --paper: #fff8dc;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--white);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--navy);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.landing {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-media,
+.hero-overlay,
+.hero-content {
+  grid-area: 1 / 1;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  transform: scale(1.03);
+}
+
+.hero-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(6, 18, 53, 0.96) 0%, rgba(6, 18, 53, 0.86) 42%, rgba(6, 18, 53, 0.5) 100%),
+    radial-gradient(circle at 82% 18%, rgba(255, 228, 0, 0.36), transparent 30%),
+    radial-gradient(circle at 78% 86%, rgba(255, 48, 67, 0.25), transparent 34%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 42px);
+  width: min(100%, 1180px);
+  min-height: 100vh;
+  padding: clamp(24px, 5vw, 72px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 30px);
+  max-width: 920px;
+}
+
+.brand-logo {
+  width: clamp(94px, 14vw, 166px);
+  height: auto;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.36));
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(0.78rem, 1.5vw, 0.98rem);
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  max-width: 850px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(2.35rem, 7vw, 5.9rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+h2 {
+  margin: 0;
+  color: var(--gold);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.intro {
+  max-width: 690px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.02rem, 2vw, 1.24rem);
+  line-height: 1.65;
+}
+
+.access-grid {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 1060px);
+}
+
+.primary-access {
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+}
+
+.school-life {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 860px);
+  padding-top: 4px;
+}
+
+.secondary-access {
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.access-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 116px;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.access-button.small {
+  min-height: 86px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+}
+
+.access-button::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.96;
+  transform: translateY(100%);
+  transition: transform 220ms ease;
+  z-index: -1;
+}
+
+.access-button:hover,
+.access-button:focus-visible {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.access-button:hover::before,
+.access-button:focus-visible::before {
+  transform: translateY(0);
+}
+
+.access-button:focus-visible {
+  outline: 3px solid rgba(255, 228, 0, 0.62);
+  outline-offset: 4px;
+}
+
+.access-button.pastoral::before {
+  background: linear-gradient(135deg, rgba(255, 228, 0, 0.28), rgba(255, 48, 67, 0.3));
+}
+
+.access-button.forms::before {
+  background: linear-gradient(135deg, rgba(79, 182, 214, 0.34), rgba(255, 228, 0, 0.18));
+}
+
+.access-button.permits::before {
+  background: linear-gradient(135deg, rgba(135, 178, 104, 0.34), rgba(255, 48, 67, 0.18));
+}
+
+.access-button.rice::before {
+  background: linear-gradient(135deg, rgba(255, 228, 0, 0.2), rgba(79, 182, 214, 0.34));
+}
+
+.access-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  color: var(--navy);
+  background: var(--gold);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 900;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.access-button.small .access-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 0.86rem;
+}
+
+.access-button strong {
+  display: block;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.02rem, 1.7vw, 1.22rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.access-button.small strong {
+  font-size: clamp(0.96rem, 1.4vw, 1.08rem);
+}
+
+.access-button small {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.access-button.small small {
+  font-size: 0.88rem;
+}
+
+.embed-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 28px);
+  background: rgba(2, 8, 28, 0.78);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.embed-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.embed-card {
+  display: grid;
+  grid-template-rows: auto minmax(280px, 1fr) auto;
+  width: min(100%, 1180px);
+  height: min(92vh, 820px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(6, 18, 53, 0.96);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+}
+
+.embed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.embed-eyebrow {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.embed-header h2 {
+  color: var(--white);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.embed-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.embed-open,
+.embed-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0 14px;
+}
+
+.embed-open {
+  color: var(--navy);
+  background: var(--gold);
+}
+
+.embed-close {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.embed-frame-wrap {
+  min-height: 0;
+  background: var(--white);
+}
+
+.embed-frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--white);
+}
+
+.embed-note {
+  margin: 0;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 920px) {
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(6, 18, 53, 0.94) 0%, rgba(6, 18, 53, 0.83) 54%, rgba(6, 18, 53, 0.9) 100%),
+      radial-gradient(circle at 78% 12%, rgba(255, 228, 0, 0.32), transparent 30%);
+  }
+
+  .primary-access,
+  .secondary-access {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+  }
+
+  .school-life {
+    max-width: 620px;
+  }
+
+  .access-button {
+    min-height: 98px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-content {
+    justify-content: flex-start;
+    padding: 22px;
+  }
+
+  .brand {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-logo {
+    width: 100px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 12vw, 3.8rem);
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .access-button {
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .access-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .embed-card {
+    height: 94vh;
+  }
+
+  .embed-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .embed-actions,
+  .embed-open,
+  .embed-close {
+    width: 100%;
+  }
+}
